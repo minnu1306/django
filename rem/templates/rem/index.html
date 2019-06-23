@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Reminder App</title>
+  </head>
+	<body style="background-color:lightblue">
+		<h1 style="font-family:courier">MY REMINDERS</h1>
+
+		<form action="{% url 'add' %}" method="POST" role="form">
+			{% csrf_token %}
+			Enter:
+			{{form.text}}
+			Date in yyyy-mm-dd
+			{{form.time}}
+			<button type="submit">ADD</button>
+
+		</form><hr>
+		<p style="font-family:verdana"> Click below to view</p>
+		<ul>
+			{% for rem in rem_list %}
+			 {% if rem.complete %}
+			  <li>{{rem.text}}</li>
+			 {% else %}
+			  <a href="/rem/details/{{rem.id}}"><li>{{rem.text}}</li></a>
+			 {% endif %}
+			{% endfor %}
+		</ul>
+
+	</body>
+</html>

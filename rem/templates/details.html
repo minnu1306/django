@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Reminder</title>
+</head>
+<body style="background-color:beige">
+  <h2>Reminder</h2><hr>
+  <h3 style="color:brown">
+  {{rem.text}}
+  </h3>
+  <p>
+  Date:
+  {{rem.time}}
+  </p>
+  <a href="{% url 'complete' rem.id %}"><button type="button"> UPDATE TO COMPLETED </button></a>
+
+
+</body>
+</html>
